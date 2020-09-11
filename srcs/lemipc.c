@@ -6,55 +6,55 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/11 17:05:12 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/11 17:11:58 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lemipc.h"
 
-static int	get_shm_id(void)
+static int	get_shm_id_data(void)
 {
-	int 	shm_id;
-	key_t	shmKey;
+	int		shm_id;
+	key_t	shm_key;
 
-	shmKey = ftok(".", 'x');
-	shm_id = shmget(shmKey, sizeof(struct s_data), IPC_CREAT | 0666);
+	shm_key = ftok(".", 'x');
+	shm_id = shmget(shm_key, sizeof(struct s_data), IPC_CREAT | 0666);
 	if (shm_id < 0)
 	{
-	    printf("shmget error\n");
-	    exit(1);
+		printf("shmget error\n");
+		exit(1);
 	}
-	return shm_id;
+	return (shm_id);
 }
 
 static int 	get_shm_id_map(void)
 {
 	int 	shm_id;
-	key_t	shmKey;
+	key_t	shm_key;
 
-	shmKey = ftok("map.txt", 'x');
-	shm_id = shmget(shmKey, sizeof(struct s_player) * (MAPSIZE * MAPSIZE), IPC_CREAT | 0666);
+	shm_key = ftok("map.txt", 'x');
+	shm_id = shmget(shm_key, sizeof(struct s_player) * (MAPSIZE * MAPSIZE), IPC_CREAT | 0666);
 	if (shm_id < 0)
 	{
-	    printf("shmget error\n");
-	    exit(1);
+		printf("shmget error\n");
+		exit(1);
 	}
-	return shm_id;
+	return (shm_id);
 }
 
 static int 	get_msq_id(void)
 {
 	int 	msq_id;
-	key_t	shmKey;
+	key_t	shm_key;
 
-	shmKey = ftok("msgq.txt", 'B');
-	msq_id = msgget(shmKey, IPC_CREAT | 0644);
+	shm_key = ftok("msgq.txt", 'B');
+	msq_id = msgget(shm_key, IPC_CREAT | 0644);
 	if (msq_id < 0)
 	{
-	    printf("shmget error\n");
-	    exit(1);
+		printf("shmget error\n");
+		exit(1);
 	}
-	return msq_id;
+	return (msq_id);
 }
 
 t_data		*init_data(t_data *data)
@@ -75,7 +75,7 @@ int			main(int argc, char **argv)
 	if (argc == 2)
 	{
 		initsignal();
-		shm_id = get_shm_id();
+		shm_id = get_shm_id_data();
 		g_data = (struct s_data *)shmat(shm_id, NULL, 0);
 		if (ft_strcmp(argv[1], "clean") == 0)
 		{

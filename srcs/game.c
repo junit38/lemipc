@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/11 17:01:21 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/11 17:09:21 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,22 @@ static int		is_win(t_data *data, t_player *player)
 	return (0);
 }
 
+t_player		*play(t_data *data, t_player *player, int *killed, int *win)
+{
+	if (is_win(data, player))
+		*win = 1;
+	else if (is_killed(data, player))
+		*killed = 1;
+	else if (player->is_chief == 1)
+		send_next_target(data, player);
+	else
+		receive_next_target(data, player);
+	if (*killed != 1 && *win != 1)
+		player = player_move(data, player);
+	g_player = player;
+	return (player);
+}
+
 void			start_game(t_data *data, t_player *player)
 {
 	int		killed;
@@ -103,17 +119,7 @@ void			start_game(t_data *data, t_player *player)
 		print_map(data);
 		wait_sem(data);
 		data->map = (struct s_player*)shmat(data->map_id, NULL, 0);
-		if (is_win(data, player))
-			win = 1;
-		else if (is_killed(data, player))
-			killed = 1;
-		else if (player->is_chief == 1)
-			send_next_target(data, player);
-		else
-			receive_next_target(data, player);
-		if (killed != 1 && win != 1)
-			player = player_move(data, player);
-		g_player = player;
+		player = play(data, player, &killed, &win);
 		shmdt(data->map);
 		post_sem(data);
 	}
