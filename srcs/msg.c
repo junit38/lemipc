@@ -6,13 +6,13 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/11 16:46:13 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/11 16:56:20 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lemipc.h"
 
-int			get_buf_size()
+int			get_buf_size(void)
 {
 	int		map_size;
 	int		size;
@@ -29,10 +29,10 @@ int			get_buf_size()
 	return (5 + (2 * size));
 }
 
-static void		get_next_target(t_data *data, t_player *player)
+static void	get_next_target(t_data *data, t_player *player)
 {
 	int			x;
-	int 		y;
+	int			y;
 
 	x = 0;
 	while (x < MAPSIZE && player->cible_x == -1)
@@ -42,14 +42,20 @@ static void		get_next_target(t_data *data, t_player *player)
 		{
 			if (data->map[get_position(x, y)].is_player == 1
 				&& data->map[get_position(x, y)].team != player->team)
-				{
-					player->cible_x = x;
-					player->cible_y = y;
-				}
+			{
+				player->cible_x = x;
+				player->cible_y = y;
+			}
 			y++;
 		}
 		x++;
 	}
+}
+
+static void	print_attack(t_player *player)
+{
+	if (player->cible_x != -1)
+		printf("Attacking (%d, %d)\n", player->cible_x, player->cible_y);
 }
 
 void		send_next_target(t_data *data, t_player *player)
@@ -64,8 +70,7 @@ void		send_next_target(t_data *data, t_player *player)
 	get_next_target(data, player);
 	x = ft_itoa(player->cible_x);
 	y = ft_itoa(player->cible_y);
-	if (player->cible_x != -1)
-		printf("Attacking (%s, %s)\n", x, y);
+	print_attack(player);
 	if (x && y)
 	{
 		ft_strcpy(buf + 2, x);
@@ -98,8 +103,7 @@ void		receive_next_target(t_data *data, t_player *player)
 		{
 			player->cible_x = ft_atoi(split_2[0]);
 			player->cible_y = ft_atoi(split_2[1]);
-			if (player->cible_x != -1)
-				printf("Attacking (%d, %d)\n", player->cible_x, player->cible_y);
+			print_attack(player);
 			free(split_2);
 		}
 		free(split);

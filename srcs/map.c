@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/11 16:40:05 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/11 16:57:15 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int 		get_player_count(t_data *data)
 	return (count);
 }
 
-void	init_map(t_data *data)
+void		init_map(t_data *data)
 {
 	int			x;
 	int 		y;
@@ -85,7 +85,7 @@ static void	print_separator()
 	ft_putchar('\n');
 }
 
-void	print_map(t_data *data)
+void		print_map(t_data *data)
 {
 	int		size;
 	int		curs;

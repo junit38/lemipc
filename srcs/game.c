@@ -6,13 +6,13 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/11 16:51:47 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/11 16:57:42 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lemipc.h"
 
-static t_player 	*get_ennemy(t_data *data, t_player *player, int current)
+static t_player *get_ennemy(t_data *data, t_player *player, int current)
 {
 	t_player *next_case;
 
@@ -90,7 +90,7 @@ static int		is_win(t_data *data, t_player *player)
 	return (0);
 }
 
-void		start_game(t_data *data, t_player *player)
+void			start_game(t_data *data, t_player *player)
 {
 	int		killed;
 	int		win;

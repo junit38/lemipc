@@ -6,13 +6,13 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/11 16:51:51 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/11 16:57:27 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lemipc.h"
 
-static int 		get_shm_id()
+static int 	get_shm_id()
 {
 	int 	shm_id;
 	key_t	shmKey;
@@ -26,7 +26,7 @@ static int 		get_shm_id()
 	return shm_id;
 }
 
-static int 		get_shm_id_map()
+static int 	get_shm_id_map()
 {
 	int 	shm_id;
 	key_t	shmKey;
@@ -40,7 +40,7 @@ static int 		get_shm_id_map()
 	return shm_id;
 }
 
-static int 		get_msq_id()
+static int 	get_msq_id()
 {
 	int 	msq_id;
 	key_t	shmKey;
@@ -54,7 +54,7 @@ static int 		get_msq_id()
 	return msq_id;
 }
 
-t_data	*init_data(t_data *data)
+t_data		*init_data(t_data *data)
 {
 	data->sem_id = semget(IPC_PRIVATE, 1, IPC_CREAT | 0666);
 	data->msq_id = get_msq_id();

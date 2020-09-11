@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/11 16:41:02 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/11 16:53:31 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static t_player	*init_player_position(t_data *data, int team)
 {
-	int 	x;
-	int 	y;
+	int		x;
+	int		y;
 
 	srand(time(NULL));
 	x = rand() % MAPSIZE;
@@ -30,11 +30,11 @@ static t_player	*init_player_position(t_data *data, int team)
 	return (&data->map[get_position(x, y)]);
 }
 
-static int 		is_player_chef(t_data *data, t_player *player)
+static int		is_player_chef(t_data *data, t_player *player)
 {
 	int			x;
-	int 		y;
-	int 		isChef;
+	int			y;
+	int			isChef;
 
 	x = 0;
 	isChef = 1;
@@ -54,10 +54,10 @@ static int 		is_player_chef(t_data *data, t_player *player)
 	return (isChef);
 }
 
-void		change_chief(t_data *data, t_player *player)
+void			change_chief(t_data *data, t_player *player)
 {
 	int			x;
-	int 		y;
+	int			y;
 
 	x = 0;
 	while (x < MAPSIZE)
@@ -74,7 +74,7 @@ void		change_chief(t_data *data, t_player *player)
 	}
 }
 
-t_player	*init_player(t_data *data, char *team)
+t_player		*init_player(t_data *data, char *team)
 {
 	t_player	*player;
 
