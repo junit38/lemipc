@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/11 16:05:15 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/11 16:40:24 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void		get_next_target(t_data *data, t_player *player)
 		y = 0;
 		while (y < MAPSIZE && player->cible_x == -1)
 		{
-			if (data->map[get_position(x, y)].isPlayer == 1
+			if (data->map[get_position(x, y)].is_player == 1
 				&& data->map[get_position(x, y)].team != player->team)
 				{
 					player->cible_x = x;

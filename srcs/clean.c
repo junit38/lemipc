@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/11 15:56:00 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/11 16:39:40 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ void		clean_player(t_data *data, t_player *player)
 	{
 		wait_sem(data);
 		data->map = (struct s_player*)shmat(data->map_id, NULL, 0);	
-		if (player->isChief)
+		if (player->is_chief)
 			change_chief(data, player);
-		player->isPlayer = 0;
-		player->isChief = 0;
+		player->is_player = 0;
+		player->is_chief = 0;
 		player->cible_x = -1;
 		player->cible_y = -1;
 		shmdt(data->map);

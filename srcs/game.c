@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/11 16:02:42 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/11 16:39:56 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static t_player 	*get_ennemy(t_data *data, t_player *player, int current_case)
 		next_case = get_case(data, player->x, player->y - 1);
 	else if (current_case == 7)
 		next_case = get_case(data, player->x - 1, player->y - 1);
-	if (next_case && next_case->isPlayer && next_case->team != player->team)
+	if (next_case && next_case->is_player && next_case->team != player->team)
 		return (next_case);
 	return (NULL);
 }
@@ -78,7 +78,7 @@ static int		is_win(t_data *data, t_player *player)
 		y = 0;
 		while (y < MAPSIZE)
 		{
-			if (data->map[get_position(x, y)].isPlayer == 1
+			if (data->map[get_position(x, y)].is_player == 1
 				&& data->map[get_position(x, y)].team != player->team)
 				ennemy++;
 			y++;
@@ -106,7 +106,7 @@ void		start_game(t_data *data, t_player *player)
 			win = 1;
 		else if (is_killed(data, player))
 			killed = 1;
-		else if (player->isChief == 1)
+		else if (player->is_chief == 1)
 			send_next_target(data, player);
 		else
 			receive_next_target(data, player);

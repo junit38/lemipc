@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/15 15:43:46 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/11 15:48:44 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/11 16:27:20 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@ typedef struct		s_player
 	int				team;
 	int				x;
 	int				y;
-	int				isPlayer;
-	int				isChief;
+	int				is_player;
+	int				is_chief;
 	int				cible_x;
-	int				cible_y;		
+	int				cible_y;
 }					t_player;
 
 typedef struct		s_data
 {
 	t_player		*map;
-	int				FILLED;
+	int				filled;
 	int				data_id;
 	int				map_id;
 	int				sem_id;

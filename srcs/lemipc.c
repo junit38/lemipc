@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/11 15:55:01 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/11 16:27:34 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,11 @@ int			main(int argc, char **argv)
 			clean_game(g_data);
 			exit(1);
 		}
-		if (g_data->FILLED != 1)
+		if (g_data->filled != 1)
 		{
 			g_data->data_id = shm_id;
 			init_data(g_data);
-			g_data->FILLED = 1;
+			g_data->filled = 1;
 		}
 		g_player = init_player(g_data, argv[1]);
 		start_game(g_data, g_player);

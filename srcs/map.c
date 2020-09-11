@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/11 15:55:54 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/11 16:40:05 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int 		get_player_count(t_data *data)
 		y = 0;
 		while (y < MAPSIZE)
 		{
-			if (data->map[get_position(x, y)].isPlayer == 1)
+			if (data->map[get_position(x, y)].is_player == 1)
 				count++;
 			y++;
 		}
@@ -56,8 +56,8 @@ void	init_map(t_data *data)
 		y = 0;
 		while (y < MAPSIZE)
 		{
-			data->map[get_position(x, y)].isPlayer = 0;
-			data->map[get_position(x, y)].isChief = 0;
+			data->map[get_position(x, y)].is_player = 0;
+			data->map[get_position(x, y)].is_chief = 0;
 			data->map[get_position(x, y)].x = x;
 			data->map[get_position(x, y)].y = y;
 			data->map[get_position(x, y)].cible_x = -1;
@@ -100,7 +100,7 @@ void	print_map(t_data *data)
 		ft_putchar('|');
 		while (curs < MAPSIZE)
 		{
-			if (data->map[get_position(size, curs)].isPlayer == 0)
+			if (data->map[get_position(size, curs)].is_player == 0)
 				ft_putchar(' ');
 			else
 				ft_putnbr(data->map[get_position(size, curs)].team);
