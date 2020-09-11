@@ -18,7 +18,6 @@ NAME = lemipc
 
 SRCS = 	$(LIB)/case.c \
 		$(LIB)/clean.c \
-		$(LIB)/data.c \
 		$(LIB)/end_game.c \
 		$(LIB)/game.c \
 		$(LIB)/lemipc.c \

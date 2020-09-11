@@ -6,32 +6,32 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/11 16:39:56 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/11 16:51:47 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lemipc.h"
 
-static t_player 	*get_ennemy(t_data *data, t_player *player, int current_case)
+static t_player 	*get_ennemy(t_data *data, t_player *player, int current)
 {
 	t_player *next_case;
 
 	next_case = NULL;
-	if (current_case == 0)
+	if (current == 0)
 		next_case = get_case(data, player->x - 1, player->y);
-	else if (current_case == 1)
+	else if (current == 1)
 		next_case = get_case(data, player->x - 1, player->y + 1);
-	else if (current_case == 2)
+	else if (current == 2)
 		next_case = get_case(data, player->x, player->y + 1);
-	else if (current_case == 3)
+	else if (current == 3)
 		next_case = get_case(data, player->x + 1, player->y + 1);
-	else if (current_case == 4)
+	else if (current == 4)
 		next_case = get_case(data, player->x + 1, player->y);
-	else if (current_case == 5)
+	else if (current == 5)
 		next_case = get_case(data, player->x + 1, player->y - 1);
-	else if (current_case == 6)
+	else if (current == 6)
 		next_case = get_case(data, player->x, player->y - 1);
-	else if (current_case == 7)
+	else if (current == 7)
 		next_case = get_case(data, player->x - 1, player->y - 1);
 	if (next_case && next_case->is_player && next_case->team != player->team)
 		return (next_case);

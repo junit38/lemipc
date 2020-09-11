@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/15 15:43:46 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/11 16:47:14 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/11 16:49:36 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ void		start_game(t_data *data, t_player *player);
 /*
 ** MAP.C
 */
-int 		get_position(int x, int y);
-int 		get_player_count(t_data *data);
+int			get_position(int x, int y);
+int			get_player_count(t_data *data);
 void		init_map(t_data *data);
 void		print_map(t_data *data);
 
