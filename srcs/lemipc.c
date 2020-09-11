@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/11 17:15:05 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/11 17:17:13 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int			main(int argc, char **argv)
 {
 	int		shm_id;
 
-	if (argc == 2)
+	if (argc == 2 && ft_atoi(argv[1]) >= 0 && ft_atoi(argv[1]) < 10)
 	{
 		initsignal();
 		shm_id = get_shm_id_data();

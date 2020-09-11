@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/11 16:56:20 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/11 17:15:35 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static void	print_attack(t_player *player)
 
 void		send_next_target(t_data *data, t_player *player)
 {
-	char	buf[BUF_MSG_SIZE];
+	char	buf[get_buf_size()];
 	char	*x;
 	char	*y;
 
@@ -84,7 +84,7 @@ void		send_next_target(t_data *data, t_player *player)
 
 void		receive_next_target(t_data *data, t_player *player)
 {
-	char	buf[BUF_MSG_SIZE];
+	char	buf[get_buf_size()];
 	char	**split;
 	char	**split_2;
 
