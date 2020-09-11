@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/11 17:15:35 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/11 17:18:16 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void		send_next_target(t_data *data, t_player *player)
 	char	*x;
 	char	*y;
 
-	ft_bzero(buf, BUF_MSG_SIZE + 1);
+	ft_bzero(buf, get_buf_size() + 1);
 	ft_strcpy(buf, ft_itoa(player->team));
 	buf[1] = '>';
 	get_next_target(data, player);
@@ -76,7 +76,7 @@ void		send_next_target(t_data *data, t_player *player)
 		ft_strcpy(buf + 2, x);
 		ft_strcpy(buf + 2 + ft_strlen(x), "/");
 		ft_strcpy(buf + 3 + ft_strlen(x), y);
-		msgsnd(data->msq_id, &buf, BUF_MSG_SIZE + 1, 0);
+		msgsnd(data->msq_id, &buf, get_buf_size() + 1, 0);
 		free(x);
 		free(y);
 	}
@@ -88,12 +88,12 @@ void		receive_next_target(t_data *data, t_player *player)
 	char	**split;
 	char	**split_2;
 
-	msgrcv(data->msq_id, &buf, BUF_MSG_SIZE + 1, 0, 0);
+	msgrcv(data->msq_id, &buf, get_buf_size() + 1, 0, 0);
 	split = ft_strsplit(buf, '>');
 	while (ft_atoi(split[0]) != player->team)
 	{
 		free(split);
-		msgrcv(data->msq_id, &buf, BUF_MSG_SIZE + 1, 0, 0);
+		msgrcv(data->msq_id, &buf, get_buf_size() + 1, 0, 0);
 		split = ft_strsplit(buf, '>');
 	}
 	if (split && ft_atoi(split[0]) == player->team)

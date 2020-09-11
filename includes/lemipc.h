@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/15 15:43:46 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/11 16:49:36 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/11 17:18:01 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@
 # include "structs.h"
 
 # define MAPSIZE 20
-# define BUF_MSG_SIZE get_buf_size()
 
 t_data		*g_data;
 t_player	*g_player;
