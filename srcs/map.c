@@ -6,22 +6,22 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/11 16:57:15 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/11 17:04:34 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lemipc.h"
 
-int 		get_position(int x, int y)
+int			get_position(int x, int y)
 {
 	return (x + y * MAPSIZE);
 }
 
-int 		get_player_count(t_data *data)
+int			get_player_count(t_data *data)
 {
 	int			x;
-	int 		y;
-	int 		count;
+	int			y;
+	int			count;
 
 	x = 0;
 	count = 0;
@@ -46,7 +46,7 @@ int 		get_player_count(t_data *data)
 void		init_map(t_data *data)
 {
 	int			x;
-	int 		y;
+	int			y;
 
 	wait_sem(data);
 	data->map = (struct s_player*)shmat(data->map_id, NULL, 0);
@@ -70,9 +70,9 @@ void		init_map(t_data *data)
 	post_sem(data);
 }
 
-static void	print_separator()
+static void	print_separator(int end_separator)
 {
-	int 	curs;
+	int		curs;
 
 	curs = 0;
 	ft_putchar('|');
@@ -83,6 +83,8 @@ static void	print_separator()
 	}
 	ft_putchar('|');
 	ft_putchar('\n');
+	if (end_separator)
+		ft_putchar('\n');
 }
 
 void		print_map(t_data *data)
@@ -92,7 +94,7 @@ void		print_map(t_data *data)
 
 	size = 0;
 	wait_sem(data);
-	print_separator();
+	print_separator(0);
 	data->map = (struct s_player*)shmat(data->map_id, NULL, 0);
 	while (size < MAPSIZE)
 	{
@@ -111,6 +113,5 @@ void		print_map(t_data *data)
 	}
 	shmdt(data->map);
 	post_sem(g_data);
-	print_separator();
-	ft_putchar('\n');
+	print_separator(1);
 }

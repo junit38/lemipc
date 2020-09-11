@@ -6,13 +6,13 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/11 16:57:42 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/11 17:01:21 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lemipc.h"
 
-static t_player *get_ennemy(t_data *data, t_player *player, int current)
+static t_player	*get_ennemy(t_data *data, t_player *player, int current)
 {
 	t_player *next_case;
 
@@ -40,11 +40,11 @@ static t_player *get_ennemy(t_data *data, t_player *player, int current)
 
 static int		is_killed(t_data *data, t_player *player)
 {
-	int 		is_killed;
-	int 		current_case;
-	int 		check_case;
-	t_player 	*enemy;
-	t_player 	*next_enemy;
+	int			is_killed;
+	int			current_case;
+	int			check_case;
+	t_player	*enemy;
+	t_player	*next_enemy;
 
 	is_killed = 0;
 	current_case = 0;
@@ -68,8 +68,8 @@ static int		is_killed(t_data *data, t_player *player)
 static int		is_win(t_data *data, t_player *player)
 {
 	int			x;
-	int 		y;
-	int 		ennemy;
+	int			y;
+	int			ennemy;
 
 	x = 0;
 	ennemy = 0;
@@ -97,7 +97,8 @@ void			start_game(t_data *data, t_player *player)
 
 	killed = 0;
 	win = 0;
-	while (!killed && !win) {
+	while (!killed && !win)
+	{
 		sleep(2);
 		print_map(data);
 		wait_sem(data);

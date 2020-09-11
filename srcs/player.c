@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/11 16:53:31 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/11 16:59:27 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ static int		is_player_chef(t_data *data, t_player *player)
 {
 	int			x;
 	int			y;
-	int			isChef;
+	int			is_chef;
 
 	x = 0;
-	isChef = 1;
+	is_chef = 1;
 	while (x < MAPSIZE)
 	{
 		y = 0;
@@ -46,12 +46,12 @@ static int		is_player_chef(t_data *data, t_player *player)
 			if (data->map[get_position(x, y)].is_player
 				&& data->map[get_position(x, y)].team == player->team
 				&& x != player->x && y != player->y)
-				isChef = 0;
+				is_chef = 0;
 			y++;
 		}
 		x++;
 	}
-	return (isChef);
+	return (is_chef);
 }
 
 void			change_chief(t_data *data, t_player *player)

@@ -6,48 +6,51 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/11 16:57:27 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/11 17:05:12 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lemipc.h"
 
-static int 	get_shm_id()
+static int	get_shm_id(void)
 {
 	int 	shm_id;
 	key_t	shmKey;
 
 	shmKey = ftok(".", 'x');
 	shm_id = shmget(shmKey, sizeof(struct s_data), IPC_CREAT | 0666);
-	if (shm_id < 0) {
+	if (shm_id < 0)
+	{
 	    printf("shmget error\n");
 	    exit(1);
 	}
 	return shm_id;
 }
 
-static int 	get_shm_id_map()
+static int 	get_shm_id_map(void)
 {
 	int 	shm_id;
 	key_t	shmKey;
 
 	shmKey = ftok("map.txt", 'x');
 	shm_id = shmget(shmKey, sizeof(struct s_player) * (MAPSIZE * MAPSIZE), IPC_CREAT | 0666);
-	if (shm_id < 0) {
+	if (shm_id < 0)
+	{
 	    printf("shmget error\n");
 	    exit(1);
 	}
 	return shm_id;
 }
 
-static int 	get_msq_id()
+static int 	get_msq_id(void)
 {
 	int 	msq_id;
 	key_t	shmKey;
 
 	shmKey = ftok("msgq.txt", 'B');
 	msq_id = msgget(shmKey, IPC_CREAT | 0644);
-	if (msq_id < 0) {
+	if (msq_id < 0)
+	{
 	    printf("shmget error\n");
 	    exit(1);
 	}
