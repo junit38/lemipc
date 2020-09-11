@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/11 17:14:32 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/11 17:15:05 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static int	get_shm_id_map(void)
 
 static int	get_msq_id(void)
 {
-	int 	msq_id;
+	int		msq_id;
 	key_t	shm_key;
 
 	shm_key = ftok("msgq.txt", 'B');
