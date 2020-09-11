@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/11 16:40:24 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/11 16:46:13 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int			get_buf_size()
 	}
 	if (MAPSIZE % (size * 10) > 0)
 		size++;
-	return (size);
+	return (5 + (2 * size));
 }
 
 static void		get_next_target(t_data *data, t_player *player)
