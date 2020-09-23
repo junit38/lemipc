@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/12 13:33:39 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/23 16:10:51 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,8 @@ t_player	*player_move(t_data *data, t_player *player)
 		diff_x = player->cible_x - player->x;
 		diff_y = player->cible_y - player->y;
 		to_move = get_next_move(data, player, diff_x, diff_y);
-		if (to_move && to_move->is_player == 1 && to_move->team == player->team)
+		if (to_move && to_move->is_player == 1
+			&& to_move->team == player->team)
 			to_move = get_next_move_2(data, player, to_move);
 		if (to_move && to_move->is_player == 0)
 		{
