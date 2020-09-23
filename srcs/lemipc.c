@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/12 13:30:52 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/23 16:12:24 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,6 @@ int			main(int argc, char **argv)
 		initsignal();
 		shm_id = get_shm_id_data();
 		g_data = (struct s_data *)shmat(shm_id, NULL, 0);
-		if (ft_strcmp(argv[1], "clean") == 0)
-		{
-			clean_game(g_data);
-			exit(1);
-		}
 		if (g_data->filled != 1)
 		{
 			g_data->data_id = shm_id;
