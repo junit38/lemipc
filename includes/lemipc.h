@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/15 15:43:46 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/11 17:18:01 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/05 14:59:57 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <sys/sem.h>
 # include <sys/types.h>
 # include <sys/ipc.h>
+# include <sys/signal.h>
 
 # include "libft.h"
 # include "structs.h"
